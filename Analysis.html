@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,38 +207,36 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#explanatory-data-analysis">
    Explanatory Data Analysis
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#research-question">
-     Research Question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-data">
-     Analysis and Interpretation of the Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#farther-eda">
-     Farther EDA
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#difference-in-difference-using-fit-ols-model">
-     Difference-in-Difference Using Fit_OLS_Model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-model">
-     Analysis and Interpretation of the Model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conclusion">
-     Conclusion
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#research-question">
+   Research Question
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-data">
+   Analysis and Interpretation of the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#farther-eda">
+   Farther EDA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-in-difference-using-fit-ols-model">
+   Difference-in-Difference Using Fit_OLS_Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-model">
+   Analysis and Interpretation of the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
  </li>
 </ul>
 
@@ -282,38 +282,36 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#explanatory-data-analysis">
    Explanatory Data Analysis
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#research-question">
-     Research Question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-data">
-     Analysis and Interpretation of the Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#farther-eda">
-     Farther EDA
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#difference-in-difference-using-fit-ols-model">
-     Difference-in-Difference Using Fit_OLS_Model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-model">
-     Analysis and Interpretation of the Model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conclusion">
-     Conclusion
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#research-question">
+   Research Question
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-data">
+   Analysis and Interpretation of the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#farther-eda">
+   Farther EDA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-in-difference-using-fit-ols-model">
+   Difference-in-Difference Using Fit_OLS_Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-model">
+   Analysis and Interpretation of the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
  </li>
 </ul>
 
@@ -330,21 +328,6 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Data Importation<a class="headerlink" href="#data-importation" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analysis.ipynb		   data			LICENSE     models
-_build			   environment.yml	logo.png    README.md
-_config.yml		   figures		main.ipynb  _toc.yml
-Contribution_Statement.md  hw07-description.md	Makefile    traffic_tools
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Libraries</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -352,13 +335,14 @@ Contribution_Statement.md  hw07-description.md	Makefile    traffic_tools
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">traffic_tools</span> <span class="kn">import</span> <span class="n">utils</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Libraries</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -702,12 +686,7 @@ dtype: object
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;weekday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">date_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span>
 
-<span class="k">def</span> <span class="nf">encode_weekend</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;is_weekend&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;weekday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">encode_weekend</span><span class="p">)</span>
+<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;is_weekend&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;weekday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_weekend</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -716,6 +695,7 @@ dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="s1">&#39;rain_1h&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/rain_1h.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -724,10 +704,7 @@ dtype: object
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;rain_1h&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/Analysis_15_2.png" src="_images/Analysis_15_2.png" />
+<img alt="_images/Analysis_14_1.png" src="_images/Analysis_14_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -739,28 +716,17 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_rain_level</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;No rain&#39;</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Weak rain&#39;</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Moderate Rain&#39;</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Heavy Rain&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Extreme Rain&#39;</span>
-<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;rain_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;rain_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">encode_rain_level</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;rain_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;rain_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_rain_level</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2151/1451274176.py:12: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2689/203505806.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  traffic[&#39;rain_level&#39;] = traffic[&#39;rain_1h&#39;].map(encode_rain_level)
+  traffic[&#39;rain_level&#39;] = traffic[&#39;rain_1h&#39;].map(utils.encode_rain_level)
 </pre></div>
 </div>
 </div>
@@ -768,24 +734,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>Similary, <code class="docutils literal notranslate"><span class="pre">snow_1h</span></code> is divided into 3 categories as the new column <code class="docutils literal notranslate"><span class="pre">snow_level</span></code>, with no snow, small snow, and big snow.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_snow_level</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;No snow&#39;</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Small snow&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Big snow&#39;</span>
-<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;snow_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;snow_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">encode_snow_level</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;snow_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;snow_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_snow_level</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2151/2999105744.py:8: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2689/486970302.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  traffic[&#39;snow_level&#39;] = traffic[&#39;snow_1h&#39;].map(encode_snow_level)
+  traffic[&#39;snow_level&#39;] = traffic[&#39;snow_1h&#39;].map(utils.encode_snow_level)
 </pre></div>
 </div>
 </div>
@@ -798,7 +757,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2151/2526713493.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2689/2526713493.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -811,6 +770,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/temp.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -819,10 +779,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;temp&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/Analysis_22_2.png" src="_images/Analysis_22_2.png" />
+<img alt="_images/Analysis_21_1.png" src="_images/Analysis_21_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -835,12 +792,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>For the <code class="docutils literal notranslate"><span class="pre">holiday</span></code> variable, there are many of them, but only holiday vs non-holiday should be useful. Therefore, this column is transformed into True or False.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_holiday</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;None&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">encode_holiday</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_holiday</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1014,86 +966,97 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of traffic volume&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;traffic volume&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/traffic_volume_hist.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Analysis_32_0.png" src="_images/Analysis_32_0.png" />
+<img alt="_images/Analysis_31_0.png" src="_images/Analysis_31_0.png" />
 </div>
 </div>
 <p>Significant less traffic volume over weekends (5:Saturday, 6:Sunday)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;weekday&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/weekday_box.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;weekday&#39;, ylabel=&#39;traffic_volume&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/Analysis_34_1.png" src="_images/Analysis_34_1.png" />
+<img alt="_images/Analysis_33_0.png" src="_images/Analysis_33_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;is_weekend&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/is_weekend_box.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;is_weekend&#39;, ylabel=&#39;traffic_volume&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/Analysis_35_1.png" src="_images/Analysis_35_1.png" />
+<img alt="_images/Analysis_34_0.png" src="_images/Analysis_34_0.png" />
 </div>
 </div>
 <p>Not much difference for traffic volume across different months</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/month_box.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;month&#39;, ylabel=&#39;traffic_volume&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/Analysis_37_1.png" src="_images/Analysis_37_1.png" />
+<img alt="_images/Analysis_36_0.png" src="_images/Analysis_36_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;snow_level&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/snow_level_box.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;snow_level&#39;, ylabel=&#39;traffic_volume&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/Analysis_38_1.png" src="_images/Analysis_38_1.png" />
+<img alt="_images/Analysis_37_0.png" src="_images/Analysis_37_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;rain_level&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/rain_level_box.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;rain_level&#39;, ylabel=&#39;traffic_volume&#39;&gt;
+<img alt="_images/Analysis_38_0.png" src="_images/Analysis_38_0.png" />
+</div>
+</div>
+<p>Then, we also examines the correlation between numerical variables to traffic volume through the correlation matrix. Collinearity is also assesed with this heat map. There is a slight positive correlation between <code class="docutils literal notranslate"><span class="pre">temp</span></code> and <code class="docutils literal notranslate"><span class="pre">traffic_volume</span></code>. There is almost no correlation between <code class="docutils literal notranslate"><span class="pre">clouds_all</span></code> and <code class="docutils literal notranslate"><span class="pre">traffic_volume</span></code>. These accord with what we see in the previous graphs. There is also a slight negative correlation between <code class="docutils literal notranslate"><span class="pre">temp</span></code> and <code class="docutils literal notranslate"><span class="pre">clouds_all</span></code>. This makes sense because the weather tend to be cooler when there is a high coverage of clouds. Both <code class="docutils literal notranslate"><span class="pre">snow_1h</span></code> and <code class="docutils literal notranslate"><span class="pre">rain_1h</span></code> have really weak correlation on traffic_volume.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">traffic</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span><span class="s1">&#39;clouds_all&#39;</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="s1">&#39;snow_1h&#39;</span><span class="p">,</span> <span class="s1">&#39;rain_1h&#39;</span><span class="p">])</span>
+
+<span class="n">corrMatrix</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corrMatrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/corr_matrix&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/Analysis_39_1.png" src="_images/Analysis_39_1.png" />
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_40_0.png" src="_images/Analysis_40_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="research-question">
-<h3>Research Question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h3>
+<h2>Research Question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h2>
 <p>Does different environmental variables (such as snow, rain, cloud, temperature, holiday, and weekend) impacts the level of traffic overall?</p>
 </div>
 <div class="section" id="analysis-and-interpretation-of-the-data">
-<h3>Analysis and Interpretation of the Data<a class="headerlink" href="#analysis-and-interpretation-of-the-data" title="Permalink to this headline">¶</a></h3>
+<h2>Analysis and Interpretation of the Data<a class="headerlink" href="#analysis-and-interpretation-of-the-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span>
@@ -1354,7 +1317,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="section" id="farther-eda">
-<h3>Farther EDA<a class="headerlink" href="#farther-eda" title="Permalink to this headline">¶</a></h3>
+<h2>Farther EDA<a class="headerlink" href="#farther-eda" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ols_traffic_model</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1513,7 +1476,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="section" id="difference-in-difference-using-fit-ols-model">
-<h3>Difference-in-Difference Using Fit_OLS_Model<a class="headerlink" href="#difference-in-difference-using-fit-ols-model" title="Permalink to this headline">¶</a></h3>
+<h2>Difference-in-Difference Using Fit_OLS_Model<a class="headerlink" href="#difference-in-difference-using-fit-ols-model" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_OLS_model</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_variable</span><span class="p">,</span> <span class="n">explanatory_variables</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
@@ -1554,7 +1517,7 @@ Dep. Variable:         Traffic Volume   R-squared:                       0.075
 Model:                            OLS   Adj. R-squared:                  0.075
 Method:                 Least Squares   F-statistic:                     649.3
 Date:                Wed, 11 May 2022   Prob (F-statistic):               0.00
-Time:                        01:59:13   Log-Likelihood:            -4.3250e+05
+Time:                        02:39:17   Log-Likelihood:            -4.3250e+05
 No. Observations:               48193   AIC:                         8.650e+05
 Df Residuals:                   48186   BIC:                         8.651e+05
 Df Model:                           6                                         
@@ -1586,13 +1549,17 @@ strong multicollinearity or other numerical problems.
 </div>
 </div>
 <div class="section" id="analysis-and-interpretation-of-the-model">
-<h3>Analysis and Interpretation of the Model<a class="headerlink" href="#analysis-and-interpretation-of-the-model" title="Permalink to this headline">¶</a></h3>
-<p>According to our Fit OLS Regression Model that we have built based on our variables, we tried to find a correlation between the level of Traffic and different variables that may influence the level of traffic. According to the summary of our model, we were able to find that there is overall positive correlation between the level of traffic and different environmental variables (snow, cloud, rain, temperature, holiday, weekend) in combined. For some of the unexpected discoveries we had, the most unexpected finding wasthe statistic significance on the snow level. Initially, we assumed that high level of snow would decrease the amount of traffic, but the result we discovered was very different from our expectation. The p-value for this factor came out to be 0.684, which was higher than 0.05. This also signifies that the snow does not have strong correlation on traffic level. For other coefficients on our variables, they were reasonably expected at the beginning of our hypothesis test as we expected that higher rain and snow would decrease the level of traffic. We expected a negative correlation because due to the danger of driving under restraint atmospheric conditions from snow and rain (which could hinder vision and increase chance of accident by less surface friction on the road), we expected less people to drive on those days. Similarly, we expected negative correlation between the traffic level and other variables, such as weekend and holiday, as less people would be driving to commute to work or they would more likely to stay at home. Other surprising foundings we had were correlation between cloud level/Temperature and traffic level as the coefficients were positive, but exceptionally smaller compared to other variables that had positive coefficients. This demonstrates that there are some possitive correlation between these factors, but weaker correlation compared to holiday, rain, snow, and weekend variables.</p>
+<h2>Analysis and Interpretation of the Model<a class="headerlink" href="#analysis-and-interpretation-of-the-model" title="Permalink to this headline">¶</a></h2>
+<p>According to our Fit OLS Regression Model that we have built based on our variables, we tried to find a correlation between the level of Traffic and off-days in a year.</p>
+<p>Using OLS, we can find the equivalent value of the difference-in-difference estimate of the treatment variables (weekend and holidays). That is, we can find the correlation between our target variable (Traffic Level) and environmental variables, and calculate the difference between these means.</p>
+<p>The reason we use OLS is to easily include our confounders as well as calculating errors.</p>
+<p>To do this, we can estimate the unknown parameters in <span class="math notranslate nohighlight">\(y = \beta_0 + \beta_1 T + \beta_2 I + \beta_3 X_1+ \beta_4 X_2 + \beta_5 X_3 + \beta_6 X_4\)</span> where <span class="math notranslate nohighlight">\(X_i\)</span> is the <span class="math notranslate nohighlight">\(i^{th}\)</span> confounder in our dataset.</p>
+<p>In this case, each <span class="math notranslate nohighlight">\(\beta\)</span> represents our target variable of Level of Traffic. The <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(I\)</span> represents our the off-days during the year for regular employees and employers.</p>
+<p>According to the summary of our model, we were able to find that there is overall negative correlation between the level of traffic and our treatment variables. For some of the unexpected discoveries we had, the most unexpected finding wasthe statistic significance on the snow level. Initially, we assumed that high level of snow would decrease the amount of traffic, but the result we discovered was very different from our expectation. The p-value for this factor came out to be 0.684, which was higher than 0.05. This also signifies that the snow does not have strong correlation on traffic level. For other coefficients on our variables, they were reasonably expected at the beginning of our hypothesis test as we expected that higher rain and snow would decrease the level of traffic. We expected a negative correlation because due to the danger of driving under restraint atmospheric conditions from snow and rain (which could hinder vision and increase chance of accident by less surface friction on the road), we expected less people to drive on those days. Similarly, we expected negative correlation between the traffic level and other variables, such as weekend and holiday, as less people would be driving to commute to work or they would more likely to stay at home. Other surprising foundings we had were correlation between cloud level/Temperature and traffic level as the coefficients were positive, but exceptionally smaller compared to other variables that had positive coefficients. This demonstrates that there are some correlation between these factors, but weaker correlation compared to holiday, rain, snow, and weekend variables.</p>
 </div>
 <div class="section" id="conclusion">
-<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
-<p>Given the interpretation between overall environmental factors and the traffic level, we are confident to say there are overall positive correlation between the combined environmental factors on the level of traffic overall, which can be found from the positive constant coefficient. There were some unexpected discoveries made  on the relationship between the level of traffic and snowiness of the weather, we found strongest correlation between the holiday variable and our target variable (Level of Traffic). Overall, the p-values for most of our variables were statistically significant, except the level of snow, ultimately supporting our hypothesis.</p>
-</div>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Given the interpretation between overall environmental factors and the traffic level, we are confident to say there are overall positive correlation between the combined environmental factors on the level of traffic overall, which can be found from the positive constant coefficient. There were some unexpected discoveries made  on the relationship between the level of traffic and snowiness of the weather, we found strongest correlation between the holiday/weekend (treatment variable) and our Level of Traffic (target variable). Overall, the p-values for target variables were statistically significant, except the level of snow, ultimately supporting our hypothesis that both off-days throughout the year decreases the level of traffic.</p>
 </div>
 </div>
 

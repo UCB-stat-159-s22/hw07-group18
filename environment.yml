@@ -9,4 +9,6 @@ dependencies:
   - pytest
   - seaborn
   - pandas
+  - statsmodel
+  - os
   

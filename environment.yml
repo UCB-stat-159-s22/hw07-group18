@@ -1,4 +1,4 @@
-name: ligo
+name: hw7
 dependencies:
   - python=3.9
   - ipykernel
@@ -8,4 +8,5 @@ dependencies:
   - h5py
   - pytest
   - seaborn
+  - pandas
   

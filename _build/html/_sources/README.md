@@ -1,9 +1,6 @@
 # Reproductibility Research for Metro Interstate Traffic
 
-Please view our report on jupyter book: [Jupyter Book](https://ucb-stat-159-s22.github.io/hw07-group18/)
-
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group18/HEAD?labpath=Analysis.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)]()
 
 **Note:** This repository is public so that Binder can find it. The data is available at: https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume. This repository is a class project to for reproducibility, as a homework assignment for the [Spring 2022 installment of UC Berkeley's Stat 159/259 course, _Reproducible and Collaborative Data Science_](https://ucb-stat-159-s22.github.io).
 
@@ -29,5 +26,5 @@ Abstract: Hourly Minneapolis-St Paul, MN traffic volume for westbound I-94. Incl
 
 You can run the main notebook with the binder link given or clone the repository to run it localy. We have also provided a list of makefile instructions for easier execution
 
-
+### Makefile Commands
 

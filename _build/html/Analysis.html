@@ -1,0 +1,1612 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metro Interstate Traffic Volume Analysis Notebook &#8212; Homework 7 Metro Interstate Traffic Analysis</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Homework 7 Metro Interstate Traffic Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="main.html">
+   Metro Interstate Traffic Volume Report
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://ucb-stat-159-s22.github.io/hw07-group18/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://ucb-stat-159-s22.github.io/hw07-group18//issues/new?title=Issue%20on%20page%20%2FAnalysis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-importation">
+   Data Importation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data Preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finalized-dataset">
+   Finalized Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explanatory-data-analysis">
+   Explanatory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#research-question">
+   Research Question
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-data">
+   Analysis and Interpretation of the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#farther-eda">
+   Farther EDA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-in-difference-using-fit-ols-model">
+   Difference-in-Difference Using Fit_OLS_Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-model">
+   Analysis and Interpretation of the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Metro Interstate Traffic Volume Analysis Notebook</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-importation">
+   Data Importation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data Preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finalized-dataset">
+   Finalized Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explanatory-data-analysis">
+   Explanatory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#research-question">
+   Research Question
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-data">
+   Analysis and Interpretation of the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#farther-eda">
+   Farther EDA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-in-difference-using-fit-ols-model">
+   Difference-in-Difference Using Fit_OLS_Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-and-interpretation-of-the-model">
+   Analysis and Interpretation of the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="metro-interstate-traffic-volume-analysis-notebook">
+<h1>Metro Interstate Traffic Volume Analysis Notebook<a class="headerlink" href="#metro-interstate-traffic-volume-analysis-notebook" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-importation">
+<h2>Data Importation<a class="headerlink" href="#data-importation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">traffic_tools</span> <span class="kn">import</span> <span class="n">utils</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Libraries</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/Metro_Interstate_Traffic_Volume.csv&#39;</span><span class="p">)</span>
+<span class="n">traffic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>holiday</th>
+      <th>temp</th>
+      <th>rain_1h</th>
+      <th>snow_1h</th>
+      <th>clouds_all</th>
+      <th>weather_main</th>
+      <th>weather_description</th>
+      <th>date_time</th>
+      <th>traffic_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>288.28</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40</td>
+      <td>Clouds</td>
+      <td>scattered clouds</td>
+      <td>2012-10-02 09:00:00</td>
+      <td>5545</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>289.36</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 10:00:00</td>
+      <td>4516</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>None</td>
+      <td>289.58</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 11:00:00</td>
+      <td>4767</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>290.13</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 12:00:00</td>
+      <td>5026</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>None</td>
+      <td>291.14</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 13:00:00</td>
+      <td>4918</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>48199</th>
+      <td>None</td>
+      <td>283.45</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2018-09-30 19:00:00</td>
+      <td>3543</td>
+    </tr>
+    <tr>
+      <th>48200</th>
+      <td>None</td>
+      <td>282.76</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2018-09-30 20:00:00</td>
+      <td>2781</td>
+    </tr>
+    <tr>
+      <th>48201</th>
+      <td>None</td>
+      <td>282.73</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Thunderstorm</td>
+      <td>proximity thunderstorm</td>
+      <td>2018-09-30 21:00:00</td>
+      <td>2159</td>
+    </tr>
+    <tr>
+      <th>48202</th>
+      <td>None</td>
+      <td>282.09</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2018-09-30 22:00:00</td>
+      <td>1450</td>
+    </tr>
+    <tr>
+      <th>48203</th>
+      <td>None</td>
+      <td>282.12</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2018-09-30 23:00:00</td>
+      <td>954</td>
+    </tr>
+  </tbody>
+</table>
+<p>48204 rows × 9 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Before doing EDA or further data anlysis, it is important to explore and perform data cleaning to check for any irregularities in the dataset and to see if any additional columns are needed. Our original data contains 9 columns and 48,204 rows. Specifically, the explanatory variables are holiday, temperature, amount of rain per hour, amount of snow per hour, coverage of clounds, type of weather, description of weather, and date time. The last column is the response variable traffic_volume.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>holiday</th>
+      <th>temp</th>
+      <th>rain_1h</th>
+      <th>snow_1h</th>
+      <th>clouds_all</th>
+      <th>weather_main</th>
+      <th>weather_description</th>
+      <th>date_time</th>
+      <th>traffic_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>288.28</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40</td>
+      <td>Clouds</td>
+      <td>scattered clouds</td>
+      <td>2012-10-02 09:00:00</td>
+      <td>5545</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>289.36</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 10:00:00</td>
+      <td>4516</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>None</td>
+      <td>289.58</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 11:00:00</td>
+      <td>4767</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>290.13</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 12:00:00</td>
+      <td>5026</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>None</td>
+      <td>291.14</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 13:00:00</td>
+      <td>4918</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(48204, 9)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>holiday                 object
+temp                   float64
+rain_1h                float64
+snow_1h                float64
+clouds_all               int64
+weather_main            object
+weather_description     object
+date_time               object
+traffic_volume           int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Upon observing the original data frame, we think it is helpful to extract new columns froms the <code class="docutils literal notranslate"><span class="pre">date_time</span></code> variable to better aid the analysis process. Thus, the <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">hour</span></code> variables are created because these might be important factors that correlates to the traffic volume change.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create new variables</span>
+<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;date_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">traffic</span><span class="o">.</span><span class="n">date_time</span><span class="p">)</span>
+<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">date_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">date_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">date_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Weekday vs weekend affects traffic volume because each day of week may have different patterns. Therefore, categorical variable <code class="docutils literal notranslate"><span class="pre">weekday</span></code> is added to our dataset, another variable <code class="docutils literal notranslate"><span class="pre">is_weekend</span></code> is added with weekdays encoded as False and weekends encoded as True.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;weekday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">date_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span>
+
+<span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;is_weekend&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;weekday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_weekend</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We observe that there is one outlier for the <code class="docutils literal notranslate"><span class="pre">rain_1h</span></code>. We drop the irregular observation because it is clearly a mistake. For most observations, the amount of rain is 0 since there is no rain for most of the times. To better train our data, we transform the numerical variable of <code class="docutils literal notranslate"><span class="pre">rain_1h</span></code> to catagorical variables <code class="docutils literal notranslate"><span class="pre">rain_level</span></code> describing the level of rain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="s1">&#39;rain_1h&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/rain_1h.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/notebook/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="_images/Analysis_14_1.png" src="_images/Analysis_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">traffic</span><span class="o">.</span><span class="n">rain_1h</span><span class="o">&lt;</span><span class="mi">8000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;rain_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;rain_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_rain_level</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2689/203505806.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  traffic[&#39;rain_level&#39;] = traffic[&#39;rain_1h&#39;].map(utils.encode_rain_level)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similary, <code class="docutils literal notranslate"><span class="pre">snow_1h</span></code> is divided into 3 categories as the new column <code class="docutils literal notranslate"><span class="pre">snow_level</span></code>, with no snow, small snow, and big snow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;snow_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;snow_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_snow_level</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2689/486970302.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  traffic[&#39;snow_level&#39;] = traffic[&#39;snow_1h&#39;].map(utils.encode_snow_level)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">temperature</span></code> variable in the original data uses the unit of kelvin. To better interpret the variable, we transform the unit to celsius. There are also outliers for the temperature which is also clearly mistakes, so we remove them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2689/2526713493.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  traffic[&#39;temp&#39;] = traffic[&#39;temp&#39;] - 273.15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/temp.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/notebook/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="_images/Analysis_21_1.png" src="_images/Analysis_21_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">traffic</span><span class="o">.</span><span class="n">temp</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">50</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the <code class="docutils literal notranslate"><span class="pre">holiday</span></code> variable, there are many of them, but only holiday vs non-holiday should be useful. Therefore, this column is transformed into True or False.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">encode_holiday</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finalized-dataset">
+<h2>Finalized Dataset<a class="headerlink" href="#finalized-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Upon finishing the data preprocessing and cleaning, the final dataset has 48193 rows and 16 columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>holiday</th>
+      <th>temp</th>
+      <th>rain_1h</th>
+      <th>snow_1h</th>
+      <th>clouds_all</th>
+      <th>weather_main</th>
+      <th>weather_description</th>
+      <th>date_time</th>
+      <th>traffic_volume</th>
+      <th>date</th>
+      <th>hour</th>
+      <th>month</th>
+      <th>weekday</th>
+      <th>is_weekend</th>
+      <th>rain_level</th>
+      <th>snow_level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>15.13</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40</td>
+      <td>Clouds</td>
+      <td>scattered clouds</td>
+      <td>2012-10-02 09:00:00</td>
+      <td>5545</td>
+      <td>2012-10-02</td>
+      <td>9</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>16.21</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 10:00:00</td>
+      <td>4516</td>
+      <td>2012-10-02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>16.43</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 11:00:00</td>
+      <td>4767</td>
+      <td>2012-10-02</td>
+      <td>11</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>16.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 12:00:00</td>
+      <td>5026</td>
+      <td>2012-10-02</td>
+      <td>12</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>17.99</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 13:00:00</td>
+      <td>4918</td>
+      <td>2012-10-02</td>
+      <td>13</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(48193, 16)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="explanatory-data-analysis">
+<h2>Explanatory Data Analysis<a class="headerlink" href="#explanatory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Before building any models or perforing any analysis, we need to perform data visualizations to see how the variables relate to each other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">traffic</span><span class="o">.</span><span class="n">traffic_volume</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of traffic volume&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;traffic volume&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/traffic_volume_hist.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_31_0.png" src="_images/Analysis_31_0.png" />
+</div>
+</div>
+<p>Significant less traffic volume over weekends (5:Saturday, 6:Sunday)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;weekday&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/weekday_box.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_33_0.png" src="_images/Analysis_33_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;is_weekend&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/is_weekend_box.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_34_0.png" src="_images/Analysis_34_0.png" />
+</div>
+</div>
+<p>Not much difference for traffic volume across different months</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/month_box.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_36_0.png" src="_images/Analysis_36_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;snow_level&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/snow_level_box.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_37_0.png" src="_images/Analysis_37_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;rain_level&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">traffic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/rain_level_box.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_38_0.png" src="_images/Analysis_38_0.png" />
+</div>
+</div>
+<p>Then, we also examines the correlation between numerical variables to traffic volume through the correlation matrix. Collinearity is also assesed with this heat map. There is a slight positive correlation between <code class="docutils literal notranslate"><span class="pre">temp</span></code> and <code class="docutils literal notranslate"><span class="pre">traffic_volume</span></code>. There is almost no correlation between <code class="docutils literal notranslate"><span class="pre">clouds_all</span></code> and <code class="docutils literal notranslate"><span class="pre">traffic_volume</span></code>. These accord with what we see in the previous graphs. There is also a slight negative correlation between <code class="docutils literal notranslate"><span class="pre">temp</span></code> and <code class="docutils literal notranslate"><span class="pre">clouds_all</span></code>. This makes sense because the weather tend to be cooler when there is a high coverage of clouds. Both <code class="docutils literal notranslate"><span class="pre">snow_1h</span></code> and <code class="docutils literal notranslate"><span class="pre">rain_1h</span></code> have really weak correlation on traffic_volume.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">traffic</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;traffic_volume&#39;</span><span class="p">,</span><span class="s1">&#39;clouds_all&#39;</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="s1">&#39;snow_1h&#39;</span><span class="p">,</span> <span class="s1">&#39;rain_1h&#39;</span><span class="p">])</span>
+
+<span class="n">corrMatrix</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corrMatrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/corr_matrix&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Analysis_40_0.png" src="_images/Analysis_40_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="research-question">
+<h2>Research Question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h2>
+<p>Does different environmental variables (such as snow, rain, cloud, temperature, holiday, and weekend) impacts the level of traffic overall?</p>
+</div>
+<div class="section" id="analysis-and-interpretation-of-the-data">
+<h2>Analysis and Interpretation of the Data<a class="headerlink" href="#analysis-and-interpretation-of-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traffic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>holiday</th>
+      <th>temp</th>
+      <th>rain_1h</th>
+      <th>snow_1h</th>
+      <th>clouds_all</th>
+      <th>weather_main</th>
+      <th>weather_description</th>
+      <th>date_time</th>
+      <th>traffic_volume</th>
+      <th>date</th>
+      <th>hour</th>
+      <th>month</th>
+      <th>weekday</th>
+      <th>is_weekend</th>
+      <th>rain_level</th>
+      <th>snow_level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>15.13</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40</td>
+      <td>Clouds</td>
+      <td>scattered clouds</td>
+      <td>2012-10-02 09:00:00</td>
+      <td>5545</td>
+      <td>2012-10-02</td>
+      <td>9</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>16.21</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 10:00:00</td>
+      <td>4516</td>
+      <td>2012-10-02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>16.43</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 11:00:00</td>
+      <td>4767</td>
+      <td>2012-10-02</td>
+      <td>11</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>16.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2012-10-02 12:00:00</td>
+      <td>5026</td>
+      <td>2012-10-02</td>
+      <td>12</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>17.99</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2012-10-02 13:00:00</td>
+      <td>4918</td>
+      <td>2012-10-02</td>
+      <td>13</td>
+      <td>10</td>
+      <td>1</td>
+      <td>False</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>48199</th>
+      <td>False</td>
+      <td>10.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>Clouds</td>
+      <td>broken clouds</td>
+      <td>2018-09-30 19:00:00</td>
+      <td>3543</td>
+      <td>2018-09-30</td>
+      <td>19</td>
+      <td>9</td>
+      <td>6</td>
+      <td>True</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>48200</th>
+      <td>False</td>
+      <td>9.61</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2018-09-30 20:00:00</td>
+      <td>2781</td>
+      <td>2018-09-30</td>
+      <td>20</td>
+      <td>9</td>
+      <td>6</td>
+      <td>True</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>48201</th>
+      <td>False</td>
+      <td>9.58</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Thunderstorm</td>
+      <td>proximity thunderstorm</td>
+      <td>2018-09-30 21:00:00</td>
+      <td>2159</td>
+      <td>2018-09-30</td>
+      <td>21</td>
+      <td>9</td>
+      <td>6</td>
+      <td>True</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>48202</th>
+      <td>False</td>
+      <td>8.94</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2018-09-30 22:00:00</td>
+      <td>1450</td>
+      <td>2018-09-30</td>
+      <td>22</td>
+      <td>9</td>
+      <td>6</td>
+      <td>True</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+    <tr>
+      <th>48203</th>
+      <td>False</td>
+      <td>8.97</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>Clouds</td>
+      <td>overcast clouds</td>
+      <td>2018-09-30 23:00:00</td>
+      <td>954</td>
+      <td>2018-09-30</td>
+      <td>23</td>
+      <td>9</td>
+      <td>6</td>
+      <td>True</td>
+      <td>No rain</td>
+      <td>No snow</td>
+    </tr>
+  </tbody>
+</table>
+<p>48193 rows × 16 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="farther-eda">
+<h2>Farther EDA<a class="headerlink" href="#farther-eda" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ols_traffic_model</span> <span class="o">=</span> <span class="n">traffic</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ols_traffic_model</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="kc">False</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;holiday&#39;</span><span class="p">]]</span>
+<span class="n">ols_traffic_model</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;weather_main&#39;</span><span class="p">,</span> <span class="s1">&#39;weather_description&#39;</span><span class="p">,</span> <span class="s1">&#39;date_time&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;weekday&#39;</span><span class="p">,</span> <span class="s1">&#39;rain_level&#39;</span><span class="p">,</span> <span class="s1">&#39;snow_level&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ols_traffic_model</span><span class="p">[</span><span class="s1">&#39;is_weekend&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="kc">False</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">traffic</span><span class="p">[</span><span class="s1">&#39;is_weekend&#39;</span><span class="p">]]</span>
+<span class="n">ols_traffic_model</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Holiday&#39;</span><span class="p">,</span> <span class="s1">&#39;Temperature (C)&#39;</span><span class="p">,</span> <span class="s1">&#39;Rain Level&#39;</span><span class="p">,</span> <span class="s1">&#39;Snow Level&#39;</span><span class="p">,</span> <span class="s1">&#39;Cloud Level&#39;</span><span class="p">,</span> <span class="s1">&#39;Traffic Volume&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekend&#39;</span><span class="p">]</span>
+
+<span class="n">ols_traffic_model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Holiday</th>
+      <th>Temperature (C)</th>
+      <th>Rain Level</th>
+      <th>Snow Level</th>
+      <th>Cloud Level</th>
+      <th>Traffic Volume</th>
+      <th>Weekend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>15.13</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40</td>
+      <td>5545</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>16.21</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>4516</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>16.43</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>4767</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>16.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>5026</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>17.99</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>4918</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>48199</th>
+      <td>0</td>
+      <td>10.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>75</td>
+      <td>3543</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48200</th>
+      <td>0</td>
+      <td>9.61</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>2781</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48201</th>
+      <td>0</td>
+      <td>9.58</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>2159</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48202</th>
+      <td>0</td>
+      <td>8.94</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>1450</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48203</th>
+      <td>0</td>
+      <td>8.97</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90</td>
+      <td>954</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>48193 rows × 7 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="difference-in-difference-using-fit-ols-model">
+<h2>Difference-in-Difference Using Fit_OLS_Model<a class="headerlink" href="#difference-in-difference-using-fit-ols-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_OLS_model</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_variable</span><span class="p">,</span> <span class="n">explanatory_variables</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fits an OLS model from data.</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">        df: pandas DataFrame</span>
+<span class="sd">        target_variable: string, name of the target variable</span>
+<span class="sd">        explanatory_variables: list of strings, names of the explanatory variables</span>
+<span class="sd">        intercept: bool, if True add intercept term</span>
+<span class="sd">    Outputs:</span>
+<span class="sd">        fitted_model: model containing OLS regression results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_variable</span><span class="p">]</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">explanatory_variables</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">intercept</span><span class="p">:</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    
+    <span class="n">fitted_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">fitted_model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_model</span> <span class="o">=</span> <span class="n">fit_OLS_model</span><span class="p">(</span><span class="n">ols_traffic_model</span><span class="p">,</span> <span class="s1">&#39;Traffic Volume&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Holiday&#39;</span><span class="p">,</span> <span class="s1">&#39;Temperature (C)&#39;</span><span class="p">,</span> <span class="s1">&#39;Rain Level&#39;</span><span class="p">,</span> <span class="s1">&#39;Snow Level&#39;</span><span class="p">,</span> <span class="s1">&#39;Cloud Level&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekend&#39;</span><span class="p">],</span> <span class="n">intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">linear_model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:         Traffic Volume   R-squared:                       0.075
+Model:                            OLS   Adj. R-squared:                  0.075
+Method:                 Least Squares   F-statistic:                     649.3
+Date:                Wed, 11 May 2022   Prob (F-statistic):               0.00
+Time:                        02:39:17   Log-Likelihood:            -4.3250e+05
+No. Observations:               48193   AIC:                         8.650e+05
+Df Residuals:                   48186   BIC:                         8.651e+05
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P&gt;|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const            3162.6425     16.699    189.391      0.000    3129.912    3195.373
+Holiday         -2583.8840    244.926    -10.550      0.000   -3063.941   -2103.826
+Temperature (C)    22.6280      0.693     32.652      0.000      21.270      23.986
+Rain Level        -82.4377      8.748     -9.423      0.000     -99.585     -65.291
+Snow Level       -434.7098   1066.451     -0.408      0.684   -2524.968    1655.548
+Cloud Level         4.0477      0.226     17.931      0.000       3.605       4.490
+Weekend          -956.3202     19.318    -49.504      0.000    -994.184    -918.457
+==============================================================================
+Omnibus:                    30243.166   Durbin-Watson:                   0.195
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3113.451
+Skew:                          -0.229   Prob(JB):                         0.00
+Kurtosis:                       1.842   Cond. No.                     7.74e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 7.74e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analysis-and-interpretation-of-the-model">
+<h2>Analysis and Interpretation of the Model<a class="headerlink" href="#analysis-and-interpretation-of-the-model" title="Permalink to this headline">¶</a></h2>
+<p>According to our Fit OLS Regression Model that we have built based on our variables, we tried to find a correlation between the level of Traffic and off-days in a year.</p>
+<p>Using OLS, we can find the equivalent value of the difference-in-difference estimate of the treatment variables (weekend and holidays). That is, we can find the correlation between our target variable (Traffic Level) and environmental variables, and calculate the difference between these means.</p>
+<p>The reason we use OLS is to easily include our confounders as well as calculating errors.</p>
+<p>To do this, we can estimate the unknown parameters in <span class="math notranslate nohighlight">\(y = \beta_0 + \beta_1 T + \beta_2 I + \beta_3 X_1+ \beta_4 X_2 + \beta_5 X_3 + \beta_6 X_4\)</span> where <span class="math notranslate nohighlight">\(X_i\)</span> is the <span class="math notranslate nohighlight">\(i^{th}\)</span> confounder in our dataset.</p>
+<p>In this case, each <span class="math notranslate nohighlight">\(\beta\)</span> represents our target variable of Level of Traffic. The <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(I\)</span> represents our the off-days during the year for regular employees and employers.</p>
+<p>According to the summary of our model, we were able to find that there is overall negative correlation between the level of traffic and our treatment variables. For some of the unexpected discoveries we had, the most unexpected finding wasthe statistic significance on the snow level. Initially, we assumed that high level of snow would decrease the amount of traffic, but the result we discovered was very different from our expectation. The p-value for this factor came out to be 0.684, which was higher than 0.05. This also signifies that the snow does not have strong correlation on traffic level. For other coefficients on our variables, they were reasonably expected at the beginning of our hypothesis test as we expected that higher rain and snow would decrease the level of traffic. We expected a negative correlation because due to the danger of driving under restraint atmospheric conditions from snow and rain (which could hinder vision and increase chance of accident by less surface friction on the road), we expected less people to drive on those days. Similarly, we expected negative correlation between the traffic level and other variables, such as weekend and holiday, as less people would be driving to commute to work or they would more likely to stay at home. Other surprising foundings we had were correlation between cloud level/Temperature and traffic level as the coefficients were positive, but exceptionally smaller compared to other variables that had positive coefficients. This demonstrates that there are some correlation between these factors, but weaker correlation compared to holiday, rain, snow, and weekend variables.</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Given the interpretation between overall environmental factors and the traffic level, we are confident to say there are overall positive correlation between the combined environmental factors on the level of traffic overall, which can be found from the positive constant coefficient. There were some unexpected discoveries made  on the relationship between the level of traffic and snowiness of the weather, we found strongest correlation between the holiday/weekend (treatment variable) and our Level of Traffic (target variable). Overall, the p-values for target variables were statistically significant, except the level of snow, ultimately supporting our hypothesis that both off-days throughout the year decreases the level of traffic.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Samarth Bhutani, Joonseo Yang, Jessica Li, and Raymond Wang<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

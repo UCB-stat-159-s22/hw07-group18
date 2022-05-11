@@ -1,0 +1,11 @@
+name: ligo
+dependencies:
+  - python=3.9
+  - ipykernel
+  - numpy
+  - scipy
+  - matplotlib
+  - h5py
+  - pytest
+  - seaborn
+  

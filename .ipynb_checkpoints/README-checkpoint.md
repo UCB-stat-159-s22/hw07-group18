@@ -30,4 +30,12 @@ Abstract: Hourly Minneapolis-St Paul, MN traffic volume for westbound I-94. Incl
 You can run the main notebook with the binder link given or clone the repository to run it localy. We have also provided a list of makefile instructions for easier execution
 
 
+## Makefile
+
+`make env` will create the environment
+`make all` will run the Analysis notebook and output figures
+`make clean` will clean the figures folder
+
+
+
 
